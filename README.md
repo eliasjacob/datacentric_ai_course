@@ -1,38 +1,59 @@
-# IMDXXXX - DataCentric AI
+# Datacentric AI - Learning with Limited Labels: Weak Supervision and Uncertainty-Aware Training
 
 ## [Dr. Elias Jacob de Menezes Neto](https://docente.ufrn.br/elias.jacob)
 
-This repository contains the code and resources for the course. The course covers a broad spectrum of topics in Natural Language Processing (NLP) and Generative Models, including foundational concepts, advanced architectures, and practical applications.
+This repository contains the code and resources for the course **"Learning with Limited Labels: Weak Supervision and Uncertainty-Aware Training"**. The course goes deep into advanced techniques for training machine learning models effectively when labeled data is scarce or noisy, focusing on data-centric AI approaches, weak supervision methodologies, semi-supervised learning strategies, and annotation error detection mechanisms.
 
-## Course Topics
+## Course Content
 
-### Natural Language Processing (NLP) Basics
-- **Bag-of-Words**: Understand this simple yet powerful representation of text where each word is represented by its count or frequency in a document.
-- **TF-IDF (Term Frequency-Inverse Document Frequency)**: Learn how to weigh words based on their frequency in a document relative to their frequency across all documents, enhancing the representation by highlighting important words while downplaying common ones.
-- **Word Embeddings**: Explore vector representations of words that capture semantic relationships, enabling more nuanced text processing and analysis.
+The course is structured into several modules, each focusing on specific aspects of learning with limited labels. Below is an overview of the topics covered, along with keypoints and takeaways from each module.
 
-### Transformer Architecture
-- **Self-Attention Mechanisms**: Dive into how transformers utilize self-attention to weigh the significance of different words in a sentence, allowing for more context-aware representations.
-- **Encoder-Decoder Structure**: Understand the role of the encoder in processing input data and the decoder in generating output, fundamental to many NLP tasks.
-- **Impact of Models like BERT (Bidirectional Encoder Representations from Transformers)**: Study how BERT and similar models have revolutionized NLP by leveraging bi-directional context.
+### Theoretical Introduction to Data-Centric AI and Weakly Supervised Learning
+- Data-Centric AI paradigm
+- Principles of Data-Centric AI
+- Weak supervision techniques
+- Types of weak supervision
+- Aggregation of multiple labeling sources
 
-### Embeddings
-- **Concept of Embeddings**: Learn about embeddings beyond text, including their application in representing images and other data types within generative models.
-- **Role in Generative Models**: Understand how embeddings facilitate the representation and generation of diverse data types.
+### Semi-supervised and Positive Unlabeled Learning
+- Semi-supervised learning approaches
+- Self-training, co-training, and multi-view learning
+- Label propagation
+- Positive Unlabeled (PU) learning
+- Elkan and Noto approach to PU learning
 
-### Large Language Models (LLMs)
-- **Foundation Models**: Explore the architecture and training of large pre-trained models that serve as the basis for various NLP applications.
-- **Fine-Tuning Techniques**: Learn methods for adapting pre-trained models to specific tasks, enhancing their performance and applicability.
-- **Prompt Engineering**: Study the art of designing prompts to coax desired responses from generative models, crucial for applications like chatbots and content generation.
+### Weak Supervision Pipeline
+- Labeling Functions (LFs)
+- Label Model
+- Integration with Semi-Supervised Learning
+- Snorkel Framework
+- Evaluation metrics and comparison with fully supervised learning
 
-### Retrieval Augmented Generation (RAG)
-- **Retrieval-Based Methods**: Understand how integrating retrieval mechanisms can augment generative models, improving their performance by incorporating relevant external information.
+### Advanced Topics in Weak Supervision - Name Entity Recognition
+- Named Entity Recognition (NER) using weak supervision
+- Skweak Framework
+- Document-Level Labeling
+- Transfer Learning in NER tasks
+- Iterative refinement of labeling functions
+
+### Annotation Error Detection
+- Types of label noise
+- Label noise transition matrix
+- Retagging techniques
+- Confident Learning for identifying mislabeled instances
+
+### Confident Learning and Cleanlab
+- Confident Learning methodology
+- Cleanlab library
+- Application to various data modalities
+- Extension to multi-label classification
+- Handling model miscalibration
 
 ## Prerequisites
 
 To get started with the course, ensure you have the following:
 
-- **Access to a Machine with a GPU**: Recommended for running computationally intensive tasks, or alternatively use Google Colab.
+- **Access to a Machine with a GPU**: Recommended for computationally intensive tasks; alternatively, use Google Colab.
 - **Installation of Conda**: For managing Python environments. Follow the installation guide [here](https://docs.conda.io/projects/conda/en/latest/user-guide/install/index.html).
 - **Weights & Biases Account**: For experiment tracking and visualization. Sign up [here](https://wandb.ai/).
 
@@ -40,33 +61,23 @@ To get started with the course, ensure you have the following:
 
 Follow these steps to set up the environment and dependencies:
 
-1. **Download the Repository**:
+1. **Clone the Repository**:
+
     ```shell
-    git clone https://github.com/eliasjacob/imd0187-residencia_dpe.git
-    cd imd0187-residencia_dpe
+    git clone https://github.com/eliasjacob/weak-supervision-course.git
+    cd weak-supervision-course
     ```
 
-2. **Run the Download Script**:
+2. **Install Dependencies**:
+
     ```shell
-    bash download_datasets_and_binaries.sh
-    ```
-
-3. **Install Ollama**:
-   Download and install Ollama from [here](https://ollama.com/download).
-
-4. **Download LLama 3.1**:
-    ```bash
-    ollama pull llama3.1
-    ```
-
-5. **Set Up Conda Environment**:
-    ```bash
     conda env create -f environment.yml
-    conda activate imd0187
+    conda activate weak-supervision
     ```
 
-6. **Authenticate Weights & Biases**:
-    ```bash
+3. **Authenticate Weights & Biases**:
+
+    ```shell
     wandb login
     ```
 
@@ -74,20 +85,16 @@ Follow these steps to set up the environment and dependencies:
 
 This repository is configured to work with Visual Studio Code Dev Containers, providing a consistent and isolated development environment. To use this feature:
 
-1. Install [Visual Studio Code](https://code.visualstudio.com/) and the [Remote - Containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) extension.
-
+1. Install [Visual Studio Code](https://code.visualstudio.com/) and the [Dev Containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) extension.
 2. Clone this repository to your local machine (if you haven't already):
 
-   ```shell
-   git clone https://github.com/eliasjacob/dell_deep_learning_genai.git
-   ```
+    ```shell
+    git clone https://github.com/eliasjacob/datacentric_ai_course.git
+    ```
 
 3. Open the cloned repository in VS Code.
-
-4. When prompted, click "Reopen in Container" or use the command palette (F1) and select "Remote-Containers: Reopen in Container".
-
+4. When prompted, click **"Reopen in Container"** or use the command palette (F1) and select **"Dev Containers: Reopen in Container"**.
 5. VS Code will build the Docker container and set up the development environment. This may take a few minutes the first time.
-
 6. Once the container is built, you'll have a fully configured environment with all the necessary dependencies installed.
 
 Using Dev Containers ensures that all course participants have the same development environment, regardless of their local setup. It also makes it easier to manage dependencies and avoid conflicts with other projects.
@@ -102,64 +109,57 @@ Once the environment is set up, you can start exploring the course materials, ru
 
 ## Teaching Approach
 
-The course will use a **top-down** teaching method, which is different from the traditional **bottom-up** approach. 
-
-- **Top-Down Method**: We'll start with a high-level overview and practical application, then delve into the underlying details as needed. This approach helps maintain motivation and provides a clearer picture of how different components fit together.
-- **Bottom-Up Method**: Typically involves learning individual components in isolation before combining them into more complex structures, which can sometimes lead to a fragmented understanding.
-
-### Example: Learning Baseball
-Harvard Professor David Perkins, in his book [Making Learning Whole](https://www.amazon.com/Making-Learning-Whole-Principles-Transform/dp/0470633719), compares learning to playing baseball. Kids don't start by memorizing all the rules and technical details; they begin by playing the game and gradually learn the intricacies. Similarly, in this course, you'll start with practical applications and slowly uncover the theoretical aspects.
-
-> **Important**: Don't worry if you don't understand everything initially. Focus on what things do, not what they are. 
+The course employs a **top-down** teaching method, starting with high-level overviews and practical applications before delving into underlying details. This approach helps maintain motivation and provides a clearer picture of how different components fit together.
 
 ### Learning Methods
-1. **Doing**: Engage in coding and building projects.
-2. **Explaining**: Write about what you've learned or help others in the course.
+
+1. **Hands-On Coding**: Engage actively in coding exercises and projects.
+2. **Explaining Concepts**: Articulate your understanding by writing about what you've learned or helping peers.
 
 You'll be encouraged to follow along with coding exercises and explain your learning to others. Summarizing key points as the course progresses will also be part of the learning process.
 
-## Final Grade
+## Final Project
 
 Your final project will be evaluated based on several criteria:
 
 - **Technical Quality**: How well you implement the project.
 - **Creativity**: The originality of your approach.
-- **Usefulness**: The practical value of your project for the court.
+- **Usefulness**: The practical value of your project.
 - **Presentation**: How effectively you present your project.
 - **Report**: The clarity and thoroughness of your report.
 
 ### Project Guidelines
+
 - **Individual Work**: The project must be done individually.
-- **Submission**: Submit a link to a GitHub repo/shared folder with your code, data, and report. Use virtual environments and `requirements.txt` to facilitate running your code.
-- **Confidential Data**: Be mindful of any confidential data used in your project.
+- **Submission**: Submit a link to a GitHub repository or shared folder with your code, data, and report. Use virtual environments and `requirements.txt` to facilitate running your code.
 - **Deadline**: The project will be due 15 days after the end of the course.
-- **Submission Platform**: Submit your project using SIGAA.
+- **Submission Platform**: Submit your project using the designated platform (e.g., SIGAA).
 
 ## Contributing
 
 Contributions to the course repository are welcome! Follow these steps to contribute:
 
-1. Fork the repository.
-2. Create a new branch:
+1. **Fork the Repository**: Click on the "Fork" button at the top right of the repository page.
+2. **Create a New Branch**:
 
     ```shell
     git checkout -b feature/YourFeature
     ```
 
-3. Make your changes.
-4. Commit your changes:
+3. **Make Your Changes**: Implement your feature or fix.
+4. **Commit Your Changes**:
 
     ```shell
     git commit -m 'Add some feature'
     ```
 
-5. Push to the branch:
+5. **Push to the Branch**:
 
     ```shell
     git push origin feature/YourFeature
     ```
 
-6. Create a Pull Request.
+6. **Create a Pull Request**: Go to your fork on GitHub and click the "New pull request" button.
 
 ## Contact
 
