@@ -1,38 +1,40 @@
 name: datacentric_ai
 channels:
   - pytorch
+  - ankurankan
   - nvidia
   - conda-forge
 dependencies:
   - _libgcc_mutex=0.1
   - _openmp_mutex=4.5
   - _py-xgboost-mutex=2.0
-  - aiohappyeyeballs=2.4.0
-  - aiohttp=3.10.5
+  - aiohappyeyeballs=2.4.2
+  - aiohttp=3.10.6
   - aiosignal=1.3.1
   - alsa-lib=1.2.12
+  - annotated-types=0.7.0
   - aom=3.9.1
   - asttokens=2.4.1
   - attrs=24.2.0
-  - aws-c-auth=0.7.26
+  - aws-c-auth=0.7.31
   - aws-c-cal=0.7.4
-  - aws-c-common=0.9.27
+  - aws-c-common=0.9.28
   - aws-c-compression=0.2.19
   - aws-c-event-stream=0.4.3
-  - aws-c-http=0.8.8
+  - aws-c-http=0.8.10
   - aws-c-io=0.14.18
-  - aws-c-mqtt=0.10.4
-  - aws-c-s3=0.6.4
+  - aws-c-mqtt=0.10.6
+  - aws-c-s3=0.6.6
   - aws-c-sdkutils=0.1.19
-  - aws-checksums=0.1.18
-  - aws-crt-cpp=0.28.2
-  - aws-sdk-cpp=1.11.379
+  - aws-checksums=0.1.20
+  - aws-crt-cpp=0.28.3
+  - aws-sdk-cpp=1.11.407
   - azure-core-cpp=1.13.0
   - azure-identity-cpp=1.8.0
   - azure-storage-blobs-cpp=12.12.0
   - azure-storage-common-cpp=12.7.0
   - azure-storage-files-datalake-cpp=12.11.0
-  - blas=2.116
+  - blas=2.124
   - blas-devel=3.9.0
   - brotli=1.1.0
   - brotli-bin=1.1.0
@@ -40,15 +42,16 @@ dependencies:
   - bzip2=1.0.8
   - c-ares=1.33.1
   - ca-certificates=2024.8.30
+  - cachetools=5.5.0
   - cairo=1.18.0
   - certifi=2024.8.30
-  - cffi=1.17.0
+  - cffi=1.17.1
   - charset-normalizer=3.3.2
   - clarabel=0.7.1
-  - cleanlab=2.6.6
   - colorama=0.4.6
   - comm=0.2.2
   - contourpy=1.3.0
+  - cryptography=43.0.1
   - cuda-cudart=12.4.127
   - cuda-cupti=12.4.127
   - cuda-libraries=12.4.0
@@ -57,22 +60,23 @@ dependencies:
   - cuda-opencl=12.6.68
   - cuda-runtime=12.4.0
   - cuda-version=12.6
+  - cudnn=8.9.7.29
   - cvxpy=1.5.3
   - cvxpy-base=1.5.3
   - cycler=0.12.1
-  - datasets=2.21.0
+  - datasets=3.0.1
   - dav1d=1.2.1
   - dbus=1.13.6
-  - debugpy=1.8.5
+  - debugpy=1.8.6
   - decorator=5.1.1
   - dill=0.3.8
   - double-conversion=3.3.0
   - ecos=2.0.14
   - exceptiongroup=1.2.2
   - executing=2.1.0
-  - expat=2.6.2
+  - expat=2.6.3
   - ffmpeg=7.0.2
-  - filelock=3.15.4
+  - filelock=3.16.1
   - font-ttf-dejavu-sans-mono=2.37
   - font-ttf-inconsolata=3.000
   - font-ttf-source-code-pro=2.038
@@ -80,10 +84,11 @@ dependencies:
   - fontconfig=2.14.2
   - fonts-conda-ecosystem=1
   - fonts-conda-forge=1
-  - fonttools=4.53.1
+  - fonttools=4.54.1
   - freetype=2.12.1
   - fribidi=1.0.10
   - frozenlist=1.4.1
+  - fsspec=2024.6.1
   - gettext=0.22.5
   - gettext-tools=0.22.5
   - gflags=2.2.2
@@ -91,31 +96,38 @@ dependencies:
   - gmp=6.3.0
   - gmpy2=2.1.5
   - gnutls=3.8.7
+  - google-ai-generativelanguage=0.6.10
+  - google-api-core=2.20.0
+  - google-api-python-client=2.147.0
+  - google-auth-httplib2=0.2.0
+  - google-generativeai=0.8.2
+  - googleapis-common-protos=1.65.0
   - graphite2=1.3.13
   - h2=4.1.0
   - harfbuzz=9.0.0
   - hpack=4.0.0
-  - huggingface_hub=0.24.6
+  - httplib2=0.22.0
+  - huggingface_hub=0.25.1
   - hyperframe=6.0.1
   - icu=75.1
-  - idna=3.8
-  - importlib-metadata=8.4.0
-  - importlib_metadata=8.4.0
+  - idna=3.10
+  - importlib-metadata=8.5.0
+  - importlib_metadata=8.5.0
   - ipykernel=6.29.5
   - ipython=8.27.0
   - ipywidgets=8.1.5
   - jedi=0.19.1
   - jinja2=3.1.4
   - joblib=1.4.2
-  - jupyter_client=8.6.2
+  - jupyter_client=8.6.3
   - jupyter_core=5.7.2
   - jupyterlab_widgets=3.0.13
   - keyutils=1.6.1
-  - kiwisolver=1.4.5
+  - kiwisolver=1.4.7
   - krb5=1.21.3
   - lame=3.100
   - lcms2=2.16
-  - ld_impl_linux-64=2.40
+  - ld_impl_linux-64=2.43
   - lerc=4.0.0
   - libabseil=20240116.2
   - libarrow=17.0.0
@@ -131,14 +143,14 @@ dependencies:
   - libbrotlienc=1.1.0
   - libcblas=3.9.0
   - libclang-cpp18.1=18.1.8
-  - libclang13=18.1.8
+  - libclang13=19.1.0
   - libcrc32c=1.1.2
   - libcublas=12.4.2.65
   - libcufft=11.2.0.44
   - libcufile=1.11.1.6
   - libcups=2.3.3
   - libcurand=10.3.7.68
-  - libcurl=8.9.1
+  - libcurl=8.10.1
   - libcusolver=11.6.0.99
   - libcusparse=12.3.0.142
   - libdeflate=1.21
@@ -147,7 +159,7 @@ dependencies:
   - libegl=1.7.0
   - libev=4.33
   - libevent=2.1.12
-  - libexpat=2.6.2
+  - libexpat=2.6.3
   - libffi=3.4.2
   - libgcc=14.1.0
   - libgcc-ng=14.1.0
@@ -157,12 +169,12 @@ dependencies:
   - libgfortran-ng=14.1.0
   - libgfortran5=14.1.0
   - libgl=1.7.0
-  - libglib=2.80.3
+  - libglib=2.82.1
   - libglvnd=1.7.0
   - libglx=1.7.0
   - libgomp=14.1.0
-  - libgoogle-cloud=2.28.0
-  - libgoogle-cloud-storage=2.28.0
+  - libgoogle-cloud=2.29.0
+  - libgoogle-cloud-storage=2.29.0
   - libgrpc=1.62.2
   - libhwloc=2.11.1
   - libiconv=1.17
@@ -172,45 +184,52 @@ dependencies:
   - liblapacke=3.9.0
   - libllvm14=14.0.6
   - libllvm18=18.1.8
+  - libllvm19=19.1.0
+  - libmagma=2.8.0
+  - libmagma_sparse=2.8.0
   - libnghttp2=1.58.0
   - libnpp=12.2.5.2
   - libnsl=2.0.1
   - libnvfatbin=12.6.68
   - libnvjitlink=12.4.99
   - libnvjpeg=12.3.1.89
-  - libopenvino=2024.3.0
-  - libopenvino-auto-batch-plugin=2024.3.0
-  - libopenvino-auto-plugin=2024.3.0
-  - libopenvino-hetero-plugin=2024.3.0
-  - libopenvino-intel-cpu-plugin=2024.3.0
-  - libopenvino-intel-gpu-plugin=2024.3.0
-  - libopenvino-intel-npu-plugin=2024.3.0
-  - libopenvino-ir-frontend=2024.3.0
-  - libopenvino-onnx-frontend=2024.3.0
-  - libopenvino-paddle-frontend=2024.3.0
-  - libopenvino-pytorch-frontend=2024.3.0
-  - libopenvino-tensorflow-frontend=2024.3.0
-  - libopenvino-tensorflow-lite-frontend=2024.3.0
+  - libopenblas=0.3.27
+  - libopengl=1.7.0
+  - libopenvino=2024.4.0
+  - libopenvino-auto-batch-plugin=2024.4.0
+  - libopenvino-auto-plugin=2024.4.0
+  - libopenvino-hetero-plugin=2024.4.0
+  - libopenvino-intel-cpu-plugin=2024.4.0
+  - libopenvino-intel-gpu-plugin=2024.4.0
+  - libopenvino-intel-npu-plugin=2024.4.0
+  - libopenvino-ir-frontend=2024.4.0
+  - libopenvino-onnx-frontend=2024.4.0
+  - libopenvino-paddle-frontend=2024.4.0
+  - libopenvino-pytorch-frontend=2024.4.0
+  - libopenvino-tensorflow-frontend=2024.4.0
+  - libopenvino-tensorflow-lite-frontend=2024.4.0
   - libopus=1.3.1
   - libosqp=0.6.3
   - libparquet=17.0.0
   - libpciaccess=0.18
-  - libpng=1.6.43
+  - libpng=1.6.44
   - libpq=16.4
   - libprotobuf=4.25.3
   - libqdldl=0.1.5
   - libre2-11=2023.09.01
-  - libsodium=1.0.18
-  - libsqlite=3.46.0
+  - libsodium=1.0.20
+  - libsqlite=3.46.1
   - libssh2=1.11.0
   - libstdcxx=14.1.0
   - libstdcxx-ng=14.1.0
   - libtasn1=4.19.0
   - libthrift=0.20.0
-  - libtiff=4.6.0
+  - libtiff=4.7.0
+  - libtorch=2.4.0
   - libunistring=0.9.10
   - libutf8proc=2.8.0
   - libuuid=2.38.1
+  - libuv=1.49.0
   - libva=2.22.0
   - libvpx=1.14.1
   - libwebp-base=1.4.0
@@ -221,24 +240,25 @@ dependencies:
   - libxml2=2.12.7
   - libxslt=1.1.39
   - libzlib=1.3.1
-  - llvm-openmp=15.0.7
+  - llvm-openmp=18.1.8
   - llvmlite=0.43.0
   - lz4-c=1.9.4
   - markupsafe=2.1.5
   - matplotlib=3.9.2
   - matplotlib-base=3.9.2
   - matplotlib-inline=0.1.7
-  - mkl=2022.1.0
-  - mkl-devel=2022.1.0
-  - mkl-include=2022.1.0
+  - mkl=2023.2.0
+  - mkl-devel=2023.2.0
+  - mkl-include=2023.2.0
   - mpc=1.3.1
   - mpfr=4.2.1
   - mpmath=1.3.0
-  - multidict=6.0.5
+  - multidict=6.1.0
   - multiprocess=0.70.16
   - munkres=1.1.4
   - mysql-common=9.0.1
   - mysql-libs=9.0.1
+  - nccl=2.23.4.1
   - ncurses=6.5
   - nest-asyncio=1.6.0
   - nettle=3.9.1
@@ -246,26 +266,30 @@ dependencies:
   - numba=0.60.0
   - numpy=1.26.4
   - ocl-icd=2.3.2
+  - openblas=0.3.27
   - openh264=2.4.1
   - openjpeg=2.5.2
   - openssl=3.3.2
+  - opt_einsum=3.4.0
   - orc=2.0.2
   - osqp=0.6.7.post0
   - p11-kit=0.24.1
   - packaging=24.1
-  - pandas=2.2.2
+  - pandas=2.2.3
   - parso=0.8.4
   - patsy=0.5.6
   - pcre2=10.44
   - pexpect=4.9.0
+  - pgmpy=0.1.26
   - pickleshare=0.7.5
   - pillow=10.4.0
   - pip=24.2
   - pixman=0.43.2
-  - platformdirs=4.2.2
-  - plotly=5.24.0
+  - platformdirs=4.3.6
+  - plotly=5.24.1
   - plotly_express=0.4.1
-  - prompt-toolkit=3.0.47
+  - prompt-toolkit=3.0.48
+  - proto-plus=1.23.0
   - psutil=6.0.0
   - pthread-stubs=0.4
   - ptyprocess=0.7.0
@@ -273,23 +297,26 @@ dependencies:
   - pure_eval=0.2.3
   - py-xgboost=2.1.1
   - py-xgboost-cpu=2.1.1
+  - pyarrow=17.0.0
   - pyarrow-core=17.0.0
   - pyarrow-hotfix=0.6
   - pycparser=2.22
   - pygments=2.18.0
   - pynndescent=0.5.13
+  - pyopenssl=24.2.1
   - pyparsing=3.1.4
   - pyside6=6.7.2
   - pysocks=1.7.1
-  - python=3.12.5
+  - python=3.12.6
   - python-dateutil=2.9.0
-  - python-tzdata=2024.1
+  - python-tzdata=2024.2
   - python-xxhash=3.5.0
   - python_abi=3.12
   - pytorch=2.4.0
   - pytorch-cuda=12.4
   - pytorch-mutex=1.0
   - pytz=2024.1
+  - pyu2f=0.1.5
   - pyyaml=6.0.2
   - pyzmq=26.2.0
   - qdldl-python=0.1.5.post2
@@ -297,25 +324,27 @@ dependencies:
   - qt6-main=6.7.2
   - re2=2023.09.01
   - readline=8.2
-  - regex=2024.7.24
+  - regex=2024.9.11
   - requests=2.32.3
-  - s2n=1.5.1
-  - safetensors=0.4.4
-  - scikit-learn=1.5.1
+  - rsa=4.9
+  - s2n=1.5.3
+  - safetensors=0.4.5
+  - scikit-learn=1.5.2
   - scipy=1.14.1
   - scs=3.2.7
-  - setuptools=72.2.0
+  - setuptools=75.1.0
   - six=1.16.0
+  - sleef=3.7
   - snappy=1.2.1
   - stack_data=0.6.2
-  - statsmodels=0.14.2
+  - statsmodels=0.14.3
   - svt-av1=2.2.1
-  - sympy=1.13.2
-  - tbb=2021.12.0
+  - sympy=1.13.3
+  - tbb=2021.13.0
   - termcolor=2.4.0
   - threadpoolctl=3.5.0
   - tk=8.6.13
-  - tokenizers=0.19.1
+  - tokenizers=0.20.0
   - torchaudio=2.4.0
   - torchtriton=3.0.0
   - torchvision=0.19.0
@@ -326,16 +355,17 @@ dependencies:
   - typing_extensions=4.12.2
   - tzdata=2024a
   - umap-learn=0.5.6
-  - urllib3=2.2.2
+  - uritemplate=4.1.1
+  - urllib3=2.2.3
   - wayland=1.23.1
-  - wayland-protocols=1.36
+  - wayland-protocols=1.37
   - wcwidth=0.2.13
   - wheel=0.44.0
   - widgetsnbextension=4.0.13
   - x264=1!164.3095
   - x265=3.5
   - xcb-util=0.4.1
-  - xcb-util-cursor=0.1.4
+  - xcb-util-cursor=0.1.5
   - xcb-util-image=0.4.0
   - xcb-util-keysyms=0.4.1
   - xcb-util-renderutil=0.3.10
@@ -362,16 +392,15 @@ dependencies:
   - xxhash=0.8.2
   - xz=5.2.6
   - yaml=0.2.5
-  - yarl=1.9.7
+  - yarl=1.13.1
   - zeromq=4.3.5
-  - zipp=3.20.1
+  - zipp=3.20.2
   - zlib=1.3.1
   - zstandard=0.23.0
   - zstd=1.5.6
   - pip:
       - absl-py==2.1.0
       - accelerate==0.34.2
-      - annotated-types==0.7.0
       - anyio==4.4.0
       - asgiref==3.8.1
       - astunparse==1.6.3
@@ -381,10 +410,10 @@ dependencies:
       - bleach==6.1.0
       - blis==0.7.11
       - build==1.2.1
-      - cachetools==5.5.0
       - catalogue==2.0.10
       - chroma-hnswlib==0.7.3
       - chromadb==0.5.3
+      - cleanlab==2.7.0
       - cleanvision==0.3.6
       - click==8.1.7
       - cloudpathlib==0.19.0
@@ -399,12 +428,12 @@ dependencies:
       - fastapi==0.112.2
       - fastjsonschema==2.20.0
       - flatbuffers==24.3.25
-      - fsspec==2024.6.1
+      - flyingsquid==0.0.0a0
+      - future==1.0.0
       - gast==0.6.0
       - gliner==0.2.11
       - google-auth==2.34.0
       - google-pasta==0.2.0
-      - googleapis-common-protos==1.65.0
       - greenlet==3.0.3
       - grpcio==1.66.1
       - h11==0.14.0
@@ -425,16 +454,16 @@ dependencies:
       - jupyterlab-pygments==0.3.0
       - keras==3.5.0
       - kubernetes==30.1.0
-      - langchain==0.2.16
-      - langchain-chroma==0.1.3
-      - langchain-community==0.2.16
-      - langchain-core==0.2.38
-      - langchain-experimental==0.0.64
-      - langchain-ollama==0.1.3
-      - langchain-openai==0.1.23
-      - langchain-text-splitters==0.2.2
+      - langchain==0.3.1
+      - langchain-chroma==0.1.4
+      - langchain-community==0.3.1
+      - langchain-core==0.3.6
+      - langchain-experimental==0.3.2
+      - langchain-ollama==0.2.0
+      - langchain-openai==0.2.1
+      - langchain-text-splitters==0.3.0
       - langcodes==3.4.0
-      - langsmith==0.1.108
+      - langsmith==0.1.129
       - language-data==1.2.0
       - libclang==18.1.1
       - lightgbm==4.5.0
@@ -455,6 +484,7 @@ dependencies:
       - nbconvert==7.16.4
       - nbformat==5.10.4
       - nltk==3.9.1
+      - numbskull==0.1.1
       - oauthlib==3.2.2
       - ollama==0.3.2
       - onnxruntime==1.19.0
@@ -478,13 +508,14 @@ dependencies:
       - posthog==3.6.0
       - preshed==3.0.9
       - protobuf==4.25.4
+      - pt-core-news-lg==3.7.0
       - pulearn==0.0.11
       - pyaml==24.7.0
-      - pyarrow==17.0.0
       - pyasn1==0.6.0
       - pyasn1-modules==0.4.0
       - pydantic==2.8.2
       - pydantic-core==2.20.1
+      - pydantic-settings==2.5.2
       - pypika==0.48.9
       - pyproject-hooks==1.1.0
       - python-dotenv==1.0.1
@@ -493,7 +524,6 @@ dependencies:
       - requests-oauthlib==2.0.0
       - rich==13.8.0
       - rpds-py==0.20.0
-      - rsa==4.9
       - scikit-optimize==0.10.2
       - sentence-transformers==3.0.1
       - sentencepiece==0.2.0
@@ -534,4 +564,4 @@ dependencies:
       - werkzeug==3.0.4
       - wrapt==1.16.0
       - xlrd==2.0.1
-prefix: /home/jacob/miniforge3/envs/datacentric_ai
+prefix: /home/jacob/mambaforge/envs/datacentric_ai
