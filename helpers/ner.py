@@ -21,6 +21,9 @@ import spacy
 from transformers import PreTrainedTokenizer
 from typing import List, Tuple, Dict
 import numpy as np
+from datasets import ClassLabel, Dataset, Features, Sequence, Value  # Import necessary classes from the datasets library
+from typing import Dict, List
+import hashlib
 
 class BaseNERAnnotator(SpanAnnotator, ABC):
     """
@@ -1025,3 +1028,88 @@ def remove_iob_tag(label):
     """
     return label.replace('B-', '').replace('I-', '')
 
+
+def calculate_md5(text: str) -> str:
+    """
+    Calculate the MD5 hash of a string.
+
+    Args:
+        text (str): The input string.
+
+    Returns:
+        str: The MD5 hash of the input string.
+    """
+    # Encode the input string as bytes
+    encoded_text = text.encode('utf-8')
+    # Calculate the MD5 hash of the encoded bytes
+    md5_hash = hashlib.md5(encoded_text)
+    # Return the hexadecimal representation of the hash
+    return md5_hash.hexdigest()
+
+
+def get_dataset_features(label_names: List[str]) -> Features:
+    """
+    Define the dataset features.
+
+    Args:
+        label_names (List[str]): List of label names.
+
+    Returns:
+        Features: The schema of the dataset.
+    """
+    return Features(
+        {
+            'tokens': Sequence(Value('string')),  # Sequence of tokens
+            'ner_tags': Sequence(ClassLabel(names=label_names)),  # Sequence of named entity recognition tags
+            'text': Value('string'),  # The original text
+            'hash': Value('string')  # The MD5 hash of the text
+        }
+    )
+
+def create_hmm_fixed_dicts(sentences_tokens_iob_fixed: List[List[tuple]], sentences: List[str]) -> Dict[str, List]:
+    """
+    Create a dictionary with tokens, NER tags, text, and hash for the HMM-labeled training data.
+
+    Args:
+        sentences_tokens_iob_fixed (List[List[tuple]]): List of sentences with tokens and IOB tags.
+        sentences (List[str]): List of original sentences.
+
+    Returns:
+        Dict[str, List]: Dictionary containing tokens, NER tags, text, and hash.
+    """
+    return {
+        'tokens': [list(zip(*sentence))[0] for sentence in sentences_tokens_iob_fixed],
+        'ner_tags': [list(zip(*sentence))[1] for sentence in sentences_tokens_iob_fixed],
+        'text': sentences,
+        'hash': [calculate_md5(sentence) for sentence in sentences]
+    }
+
+def create_hf_dataset(sentences_tokens_iob_fixed: List[List[tuple]], sentences: List[str], label_to_id: Dict[str, int]) -> Dataset:
+    """
+    Create a Hugging Face Dataset from the HMM-labeled training data.
+
+    Args:
+        sentences_tokens_iob_fixed (List[List[tuple]]): List of sentences with tokens and IOB tags.
+        sentences (List[str]): List of original sentences.
+        label_to_id (Dict[str, int]): Mapping from label names to label IDs.
+
+    Returns:
+        Dataset: The Hugging Face Dataset object.
+    """
+    
+    # Create the reverse mapping from label IDs to label names
+    # This is useful for converting label IDs back to label names
+    id_to_label = {v: k for k, v in label_to_id.items()}
+
+    # Extract the label names from the mapping
+    # This list will be used to define the ClassLabel feature in the dataset
+    label_names = list(label_to_id.keys())
+
+    # Define the dataset features using the label names
+    dataset_features = get_dataset_features(label_names)
+    
+    # Create the dictionary for the HMM-labeled training data
+    train_hmm_fixed_dicts = create_hmm_fixed_dicts(sentences_tokens_iob_fixed, sentences)
+    
+    # Create and return the Hugging Face Dataset object
+    return Dataset.from_dict(train_hmm_fixed_dicts, features=dataset_features)

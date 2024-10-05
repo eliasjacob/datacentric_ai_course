@@ -257,3 +257,60 @@ def print_classification_metrics(y_true: np.ndarray, y_pred: np.ndarray) -> None
     # Format the numbers with commas for better readability
     print(pd.crosstab(y_true, y_pred, rownames=['True'], colnames=['Predicted'], margins=True).map("{:,}".format))
 
+
+def get_cardinality_from_labels(labels: np.ndarray) -> int:
+    """
+    Get the cardinality (number of unique classes) from the labels.
+
+    Args:
+        labels (np.ndarray): A numpy array representing the labels.
+
+    Returns:
+        int: An integer representing the cardinality.
+    """
+    # Decode one-hot encoded labels to their original form
+    decoded_labels = one_hot_decode(labels)
+    # Return the number of unique labels
+    return len(np.unique(decoded_labels))
+
+
+def one_hot_encode(labels: np.ndarray) -> np.ndarray:
+    """
+    One-hot encode the labels.
+
+    Args:
+        labels (np.ndarray): A numpy array representing the labels.
+
+    Returns:
+        np.ndarray: A numpy array representing the one-hot encoded labels.
+    """
+    if labels.ndim == 1:
+        # If labels are 1-dimensional, determine the number of unique classes
+        num_classes = len(np.unique(labels))
+        # Create a one-hot encoded matrix
+        one_hot_labels = np.eye(num_classes)[labels]
+        return one_hot_labels
+    else:
+        # If labels are already one-hot encoded, return them as is
+        return labels
+
+
+def one_hot_decode(one_hot_labels: np.ndarray) -> np.ndarray:
+    """
+    Decode the one-hot encoded labels to their original form.
+
+    Args:
+        one_hot_labels (np.ndarray): A numpy array representing the one-hot encoded labels.
+
+    Returns:
+        np.ndarray: A numpy array representing the decoded labels.
+    """
+    if one_hot_labels.ndim == 1:
+        # If labels are 1-dimensional, return them as is
+        return one_hot_labels
+    else:
+        # Decode one-hot encoded labels by finding the index of the maximum value in each row
+        decoded_labels = np.argmax(one_hot_labels, axis=1)
+        return decoded_labels
+    
+

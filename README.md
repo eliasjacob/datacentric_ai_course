@@ -1,8 +1,8 @@
-# Datacentric AI - Learning with Limited Labels: Weak Supervision and Uncertainty-Aware Training
+# Datacentric AI - Learning with Limited Labels using Weak Supervision and Uncertainty-Aware Training
 
 ## [Dr. Elias Jacob de Menezes Neto](https://docente.ufrn.br/elias.jacob)
 
-This repository contains the code and resources for the course **"Learning with Limited Labels: Weak Supervision and Uncertainty-Aware Training"**. The course goes deep into advanced techniques for training machine learning models effectively when labeled data is scarce or noisy, focusing on data-centric AI approaches, weak supervision methodologies, semi-supervised learning strategies, and annotation error detection mechanisms.
+This repository contains the code and resources for the course **"Learning with Limited Labels using Weak Supervision and Uncertainty-Aware Training"**. The course goes deep into advanced techniques for training machine learning models effectively when labeled data is scarce or noisy, focusing on data-centric AI approaches, weak supervision methodologies, semi-supervised learning strategies, and annotation error detection mechanisms.
 
 ## Course Content
 
@@ -49,6 +49,19 @@ The course is structured into several modules, each focusing on specific aspects
 - Extension to multi-label classification
 - Handling model miscalibration
 
+### Advanced Label Models
+- Snorkel MeTaL
+- Generative Model
+- Flying Squid
+- Dawid-Skene
+- Hyper Label Model
+- CrowdLab
+
+### Influence Functions 
+- Influence functions for model interpretation
+- Source-Aware Influence Functions
+
+
 ## Prerequisites
 
 To get started with the course, ensure you have the following:
@@ -64,15 +77,15 @@ Follow these steps to set up the environment and dependencies:
 1. **Clone the Repository**:
 
     ```shell
-    git clone https://github.com/eliasjacob/weak-supervision-course.git
-    cd weak-supervision-course
+    git clone https://github.com/eliasjacob/datacentric_ai_course.git
+    cd datacentric_ai_course
     ```
 
 2. **Install Dependencies**:
 
     ```shell
     conda env create -f environment.yml
-    conda activate weak-supervision
+    conda activate datacentric_ai
     ```
 
 3. **Authenticate Weights & Biases**:

@@ -168,3 +168,5 @@ checkpoints/
 .DS_Store
 binaries.zip
 tmp*
+wandb
+*.code-workspace
