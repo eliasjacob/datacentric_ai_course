@@ -73,7 +73,7 @@ The course is structured into several modules, each focusing on specific aspects
 To get started with the course, ensure you have the following:
 
 - **Access to a Machine with a GPU**: Recommended for computationally intensive tasks; alternatively, use Google Colab.
-- **Installation of Conda**: For managing Python environments. Follow the installation guide [here](https://docs.conda.io/projects/conda/en/latest/user-guide/install/index.html).
+- **Installation of Poetry**: For managing Python dependencies. Install it [here](https://python-poetry.org/docs/). (`pip install poetry`)
 - **Weights & Biases Account**: For experiment tracking and visualization. Sign up [here](https://wandb.ai/).
 
 ## Installation
@@ -90,8 +90,8 @@ Follow these steps to set up the environment and dependencies:
 2. **Install Dependencies**:
 
     ```shell
-    conda env create -f environment.yml
-    conda activate datacentric_ai
+    poetry install
+    poetry shell
     ```
 
 3. **Authenticate Weights & Biases**:
@@ -99,24 +99,6 @@ Follow these steps to set up the environment and dependencies:
     ```shell
     wandb login
     ```
-
-## Using VS Code Dev Containers
-
-This repository is configured to work with Visual Studio Code Dev Containers, providing a consistent and isolated development environment. To use this feature:
-
-1. Install [Visual Studio Code](https://code.visualstudio.com/) and the [Dev Containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) extension.
-2. Clone this repository to your local machine (if you haven't already):
-
-    ```shell
-    git clone https://github.com/eliasjacob/datacentric_ai_course.git
-    ```
-
-3. Open the cloned repository in VS Code.
-4. When prompted, click **"Reopen in Container"** or use the command palette (F1) and select **"Dev Containers: Reopen in Container"**.
-5. VS Code will build the Docker container and set up the development environment. This may take a few minutes the first time.
-6. Once the container is built, you'll have a fully configured environment with all the necessary dependencies installed.
-
-Using Dev Containers ensures that all course participants have the same development environment, regardless of their local setup. It also makes it easier to manage dependencies and avoid conflicts with other projects.
 
 ## Getting Started
 
