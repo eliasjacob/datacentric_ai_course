@@ -61,6 +61,12 @@ The course is structured into several modules, each focusing on specific aspects
 - Influence functions for model interpretation
 - Source-Aware Influence Functions
 
+### Active Learning
+- Active Learning strategies
+- Uncertainty sampling
+- Query by Committee
+- Diversity sampling
+
 
 ## Prerequisites
 

@@ -1,9 +1,12 @@
 from abc import ABC, abstractmethod
 from collections import Counter
-from typing import Any, Callable, List, Optional, Union
-import pandas as pd
+from typing import Any, Callable, List, Optional
+
+import hashlib
 import joblib
+import matplotlib.pyplot as plt
 import numpy as np
+from PIL import Image
 
 
 class BaseDataset(ABC):
@@ -318,3 +321,108 @@ class WeakDataset(BaseDataset):
             self.true_labels = self.true_labels[idxs]
         if self.embeddings is not None:
             self.embeddings = self.embeddings[idxs]
+
+
+class ImageItem:
+    """Represents an image with associated metadata and embedding.
+
+    Attributes:
+        image_data (Image): The image data.
+        label_index (int): The integer label of the image.
+        label_name (str): The string label of the image.
+        embedding (np.ndarray): The embedding vector of the image.
+    """
+
+    def __init__(self, image_data: Image, label_index: int, label_name: str, embedding: np.ndarray):
+        """Initializes an ImageItem with image data, label, and embedding.
+
+        Args:
+            image_data (Image): The image data.
+            label_index (int): The integer label of the image.
+            label_name (str): The string label of the image.
+            embedding (np.ndarray): The embedding vector of the image.
+        """
+        self.image_data = image_data
+        self.label_index = label_index
+        self.label_name = label_name
+        self.embedding = embedding
+        self.hash = hashlib.md5(image_data.tobytes()).hexdigest()
+
+    def __repr__(self) -> str:
+        """Displays the image with its label.
+
+        Returns:
+            str: A string representation of the ImageItem.
+        """
+        plt.figure()
+        plt.title(self.label_name)
+        plt.imshow(np.array(self.image_data))
+        plt.axis('off')
+        plt.show()
+        return f"ImageItem(label_name={self.label_name})"
+
+class SimpleImageDataset:
+    """A dataset of ImageItem objects.
+
+    Attributes:
+        image_items (List[ImageItem]): A list of ImageItem objects.
+    """
+
+    def __init__(self, image_items: List[ImageItem], split: str):
+        """Initializes the ImageDataset with a list of ImageItem objects.
+
+        Args:
+            image_items (List[ImageItem]): A list of ImageItem objects.
+            split (str): The name of the split (e.g., "train", "valid", "test").
+
+        """
+        assert split in ['train', 'valid', 'test'], "Split must be one of ['train', 'valid', 'test']"
+        self.image_items = image_items
+        self.split = split
+
+    def __getitem__(self, index: int) -> ImageItem:
+        """Gets the ImageItem at the specified index.
+
+        Args:
+            index (int): The index of the ImageItem to retrieve.
+
+        Returns:
+            ImageItem: The ImageItem at the specified index.
+        """
+        return self.image_items[index]
+
+    def __len__(self) -> int:
+        """Gets the number of ImageItem objects in the dataset.
+
+        Returns:
+            int: The number of ImageItem objects in the dataset.
+        """
+        return len(self.image_items)
+
+    def __repr__(self) -> str:
+        """Gets a string representation of the ImageDataset.
+
+        Returns:
+            str: A string representation of the ImageDataset.
+        """
+        return f"ImageDataset with {len(self.image_items)} images in the {self.split} split"
+    
+    def save(self, path: str) -> None:
+        """Saves the ImageDataset to a file.
+
+        Args:
+            path (str): The path to save the ImageDataset to.
+        """
+        joblib.dump(self, path)
+
+    @staticmethod
+    def load(path: str) -> 'SimpleImageDataset':
+        """Loads an ImageDataset from a file.
+
+        Args:
+            path (str): The path to load the ImageDataset from.
+
+        Returns:
+            ImageDataset: The loaded ImageDataset.
+        """
+        return joblib.load(path)
