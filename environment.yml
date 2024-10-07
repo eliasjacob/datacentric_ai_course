@@ -507,7 +507,6 @@ dependencies:
       - preshed==3.0.9
       - proto-plus==1.24.0
       - protobuf==4.25.5
-      - pt-core-news-lg==3.8.0
       - pulearn==0.0.11
       - pyasn1==0.6.1
       - pyasn1-modules==0.4.1
