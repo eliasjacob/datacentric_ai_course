@@ -88,12 +88,17 @@ Follow these steps to set up the environment and dependencies:
     ```
 
 2. **Install Dependencies**:
-
+ - For GPU support:
     ```shell
-    poetry install
+    poetry install --sync -E cuda --with cuda
     poetry shell
     ```
-
+    
+- For CPU-only support:
+    ```shell
+    poetry install --sync -E cpu
+    poetry shell
+    ```
 3. **Authenticate Weights & Biases**:
 
     ```shell
