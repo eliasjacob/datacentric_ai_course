@@ -133,14 +133,15 @@ Once the environment is set up, you can start exploring the course materials, ru
 
 ## Teaching Approach
 
-The course employs a **top-down** teaching method, starting with high-level overviews and practical applications before delving into underlying details. This approach helps maintain motivation and provides a clearer picture of how different components fit together.
+The course will use a **top-down** teaching method, which is different from the traditional **bottom-up** approach. 
 
-### Learning Methods
+- **Top-Down Method**: We'll start with a high-level overview and practical application, then delve into the underlying details as needed. This approach helps maintain motivation and provides a clearer picture of how different components fit together.
+- **Bottom-Up Method**: Typically involves learning individual components in isolation before combining them into more complex structures, which can sometimes lead to a fragmented understanding.
 
-1. **Hands-On Coding**: Engage actively in coding exercises and projects.
-2. **Explaining Concepts**: Articulate your understanding by writing about what you've learned or helping peers.
+### Example: Learning Baseball
+Harvard Professor David Perkins, in his book [Making Learning Whole](https://www.amazon.com/Making-Learning-Whole-Principles-Transform/dp/0470633719), compares learning to playing baseball. Kids don't start by memorizing all the rules and technical details; they begin by playing the game and gradually learn the intricacies. Similarly, in this course, you'll start with practical applications and slowly uncover the theoretical aspects.
 
-You'll be encouraged to follow along with coding exercises and explain your learning to others. Summarizing key points as the course progresses will also be part of the learning process.
+> **Important**: Don't worry if you don't understand everything initially. Focus on what things do, not what they are. 
 
 ## Final Project
 
