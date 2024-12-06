@@ -67,7 +67,6 @@ The course is structured into several modules, each focusing on specific aspects
 - Query by Committee
 - Diversity sampling
 
-
 ## Prerequisites
 
 To get started with the course, ensure you have the following:
@@ -123,13 +122,6 @@ This repository is configured to work with Visual Studio Code Dev Containers, pr
 
 Using Dev Containers ensures that all course participants have the same development environment, regardless of their local setup. It also makes it easier to manage dependencies and avoid conflicts with other projects.
 
-## Getting Started
-
-Once the environment is set up, you can start exploring the course materials, running code examples, and working on the practical exercises.
-
-### Notes
-
-- Some parts of the code may require a GPU for efficient execution. If you don't have access to a GPU, consider using Google Colab.
 
 ## Teaching Approach
 
